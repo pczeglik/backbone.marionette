@@ -1,4 +1,11 @@
+## [View the new docs](http://marionettejs.com/docs/marionette.callbacks.html)
+
 # Marionette.Callbacks
+
+> Warning: deprecated
+>
+> Marionette.Callbacks are deprecated, and are scheduled to be removed in the next major release of the library. Instead
+> of Callbacks, you should use promises or events to manage asynchronous logic.
 
 The `Callbacks` object assists in managing a collection of callback
 methods, and executing them, in an async-safe manner.
@@ -23,7 +30,7 @@ provided options to the callbacks.
 ## Basic Usage
 
 ```js
-var callbacks = new Backbone.Marionette.Callbacks();
+var callbacks = new Marionette.Callbacks();
 
 callbacks.add(function(options){
   alert("I'm a callback with " + options.value + "!");
@@ -43,7 +50,7 @@ You can optionally specify the context that you want each callback to be
 executed with, when adding a callback:
 
 ```js
-var callbacks = new Backbone.Marionette.Callbacks();
+var callbacks = new Marionette.Callbacks();
 
 callbacks.add(function(options){
   alert("I'm a callback with " + options.value + "!");

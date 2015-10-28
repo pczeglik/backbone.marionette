@@ -2,13 +2,15 @@
 *.swp
 *.swo
 *.orig
+.idea
 tmp/
 ext/
 node_modules/
+coverage/
 .grunt/
 npm-debug.log
-_SpecRunner.html
 bower_components/
-.idea
 .grunt
 reports
+jsdoc
+test/src/

@@ -1,174 +1,128 @@
-Marionette has a few very specific guidelines in addition
-to some of the standard guidelines that Github and open
-source projects in general recommend. These guidelines
-are here to facilitate your contribution and streamline
-the process of getting the changes merged in and released.
+Marionette has a few guidelines to facilitate your contribution and streamline
+the process of getting changes merged in and released.
 
-If you don't follow these guidelines, we'll still work
-with you to get the changes in. Any contribution you can
-make will help tremendously. Following these guidelines
-will help to streamline the pull request and change
-submission process.
+1. [Setting up Marionette locally](#setting-up-marionette-locally)
+2. [Reporting a bug](#reporting-a-bug)
+  1. [When you have a patch](#when-you-have-a-patch)
+  2. [When you don't have a bug fix](#when-you-dont-have-a-bug-fix)
+3. [Running Tests](#running-tests)
+4. [Updating docs](#updating-docs)
 
-## Documentation Fixes
 
-If you notice any problems with any documentation, please
-fix it and we'll get it merged as soon as we can. For
-small things like typos and grammar (which we know I'm
-terrible with), just click the "Edit this file" button
-and send in the pull request for the fix. For larger
-changes and big swaths of documentation changes, a regular
-pull request as outlined below is more appropriate.
+## Setting up Marionette locally
 
-## Pull Requests
+* Fork the Marionette repo.
 
-See [Github's documentation for pull requests](https://help.github.com/articles/using-pull-requests).
+* `git clone` your fork onto your computer.
 
-Pull requests are by far the best way to contribute to
-Marionette. Any time you can send us a pull request with
-the changes that you want, we will have an easier time
-seeing what you are trying to do. But a pull request in
-itself is not usually sufficient. There needs to be some
-context and purpose with it, and it should be done
-against a specific branch.
+* Run `npm install` to make sure you have all Marionette dependencies locally.
 
-Try and stick to Marionette's existing coding conventions
-(just use the file your editing as a guideline).
-Installing the appropriate [EditorConfig plugin](http://editorconfig.org/#download)
-for your code editor will help with this.
+## Reporting a bug
 
-## General Submission Guidelines
+In order to best help out with bugs, we need to know the following information
+in your bug submission:
 
-These guidelines are generally applicable whether or not
-you are submitting a bug or a pull request. Please try to
-include as much of this information as possible with any
-submission.
+* Marionette version no.
+* Backbone version no.
 
-### Version Numbers
+Including this information in a submission will help us test the problem and
+ensure that the bug is both reproduced and corrected on the platforms /
+versions that you are having issues with.
 
-In order to best help out with bugs, we need to know the
-following information in your bug submission:
+<a name="format-desc"></a>**Provide A Meaningful Description**
 
-* Backbone version #
-* Underscore version #
-* jQuery version #
-* Marionette version #
-* Operating System / version #
-* Browser and version #
+It is very important to provide a meaningful description with your bug reports
+and pull requests. A good format for these descriptions will include the
+following things:
 
-Including this information in a submission will help
-us to test the problem and ensure that the bug is
-both reproduced and corrected on the platforms / versions
-that you are having issues with.
+1. The problem you are facing (in as much detail as is necessary to describe
+the problem to someone who doesn't know anything about the system you're
+building)
 
-### Provide A Meaningful Description
+2. A summary of the proposed solution
 
-It doesn't matter how beautiful and "obvious" your fix is.
-We have 10,000,000,000 things floating around the project
-at any given moment and we will not immediately understand
-why you are making changes.
+3. A description of how this solution solves the problem, in more detail than
+item #2
 
-Given that, it is very important to provide a meaningful
-description with your pull requests that alter any code.
-A good format for these descriptions will include three things:
+4. Any additional discussion on possible problems this might introduce,
+questions that you have related to the changes, etc.
 
-1. Why: The problem you are facing (in as much detail as is
-necessary to describe the problem to someone who doesn't
-know anything about the system you're building)
+For a PR, we need at least the first 2 items to understand why you are changing
+the code. If not, we will ask that you add the necessary information.
 
-2. What: A summary of the proposed solution
+Please refrain from giving code examples in altJS languages like CoffeeScript,
+etc. Marionette is written in plain-old JavaScript and is generally easier all
+members in the community to read.
 
-3. How: A description of how this solution solves the problem,
-in more detail than item #2
+### When you have a patch
 
-4. Any additional discussion on possible problems this might
-introduce, questions that you have related to the changes, etc.
+See [Github's documentation for pull
+requests](https://help.github.com/articles/using-pull-requests).
 
-Without at least the first 2 items in this list, we won't
-have any clue why you're changing the code. The first thing
-we'll ask, then, is that you add that information.
+Pull requests are by far the best way to contribute to Marionette. Any time you
+can send us a pull request with the changes that you want, we will have an
+easier time seeing what you are trying to do. But a pull request in itself is
+not usually sufficient. There needs to be some context and purpose with it, and
+it should be done against a specific branch.
 
-Please refrain from giving code examples in altJS langauges like
-CoffeeScript, etc. Marionette is written in plain-old JavaScript
-and is generally easier all members in the community to read.
+Try and stick to Marionette's existing coding conventions (just use the file
+you're editing as a guideline). Installing the appropriate [EditorConfig
+plugin](http://editorconfig.org/#download) for your code editor will help with
+this.
 
-### Create A Topic Branch For Your Work
+* Decide whether you are need to base off of `next` or `patch` branch. Do not
+ base off `master`.
 
-The work you are doing for your pull request should not be
-done in the master branch of your forked repository. Create
-a topic branch for your work. This allows you to isolate
-the work you are doing from other changes that may be happening.
+    * PRs for all bug fixes, doc updates, and unit tests of existing features
+should be opened against `patch`.
 
-Github is a smart system, too. If you submit a pull request
-from a topic branch and we ask you to fix something, pushing
-a change to your topic branch will automatically update the
-pull request.
+    * PRs for all new features, breaking or not, should be opened against
+`next`.
 
-### Isolate Your Changes For The Pull Request
+* Checkout `next` or `patch` and run `git pull` to make sure it is updated.
 
-See the previous item on creating a topic branch.
+* Create a new branch for your PR by running `git checkout -b new-branch-name`
 
-If you don't use a topic branch, we may ask you to re-do your
-pull request on a topic branch. If your pull request contains
-commits or other changes that are not related to the pull
-request, we will ask you to re-do your pull request.
+* Whenever possible, submit the specs (unit tests) that correspond to your pull
+request.
 
-### Branch from "dev" not "master"
+* Make changes to files in `src`, not the builds in `lib`. This is built before
+every release.
 
-The "master" branch of the Marionette repository is for 
-production release code, and documentation updates only. Never 
-create a pull request from the master branch. Always create 
-a branch for your work from the "dev" branch. This will 
-facilitate easier pull request management for the continuous 
-work that is done in the dev branch.
+* Push to your remote fork then compare.
 
-### Submit Specs With Your Pull Request
+* Submit pull request.
+  When doing so, make sure you follow the format for description outlined
+[above](#format-desc).
+  If you are resolving an existing issue, make sure to link to the issue in the
+description.
 
-Whenever possible, submit the specs (unit tests) that
-correspond to your pull request.
+### When you don't have a bug fix
 
-I would rather see a pull request that is nothing but a
-failing spec, than see a large change made to the real
-code with no test to support the change.
+If you are stuck in a scenario that fails in your app, but you don't know how to
+fix it, submit a failing spec to show the failing scenario. Follow the
+guidelines for a pull request submission, but don't worry about fixing the
+problem. A failing spec to show that a problem exists is a very very very
+helpful pull request for us.
 
-In fact...
+We'll even accept a failing test pasted into the ticket description instead of a
+PR. That would at least get us started on creating the failing test in the code.
 
-## Submit A Failing Spec If You Don't Know How To Fix The Problem
+## Running Tests
 
-If you are stuck in a scenario that fails in your app,
-but you don't know how to fix it, submit a failing spec
-to show the failing scenario. Follow the guidelines for a
-pull request submission, but don't worry about fixing the
-problem. A failing spec to show that a problem exists is
-a very very very helpful pull request for us.
+There are 3 ways you can run the tests.
 
-We'll even accept a failing test pasted in to the ticket
-description instead of a pull request. That would at
-least get us started on creating the failing test in the code.
+* via command-line by running `npm test`
 
-## Don't Be A Troll
+* in the browser by opening `SpecRunner.html`
 
-It is very sad that we need to include this section of
-the contribution guidelines...
+* via Grunt by running `grunt` to run tests once or `grunt watch` to rerun on
+each change
 
-If you are running in to a scenario with a problem, don't
-be a troll. Comments like "does marionette even have tests?"
-are not useful, funny or constructive. In fact, it may get
-you blocked and reported for abuse to Github.
+## Updating docs
 
-Submit a useful comment describing the scenario that is
-having an issue. Show us a failing test. Show us some
-code that is not behaving the way the documentation says
-it should. Be useful and work with us to fix the problem.
-
-We're all for criticism and tearing apart Marionette for
-the problems it has. Do it in a constructive and helpful
-manner: "There isn't a test for this scenario. Here's a
-rough idea for one that shows the problem." Tell us why
-you don't like Marionette. Tell us that someone else is
-building something better and why that other thing fits
-your scenario and needs better than Marionette does. Just
-do it in a manner that allows us to learn from your
-experiences, instead of reacting to you being a troll
-(likely causing us to get defensive and miss an opportunity
-to learn something).
+If you notice any problems with any documentation, please fix it and we'll get
+it merged as soon as we can. For small things like typos and grammar, just click
+the "Edit this file" button and send in the pull request for the fix. For larger
+documentation changes, a regular pull request as outlined above is more
+appropriate.
